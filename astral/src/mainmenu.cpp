@@ -1,4 +1,5 @@
 #include "../include/mainmenu.h"
+#include "../include/gamescreen.h"
 
 #include <iostream>
 
@@ -19,11 +20,13 @@ void MainMenu::Draw()
 {
     BeginDrawing();
     DrawTexture(this->background, 0, 0, WHITE);
-    DrawText(WINDOW_TITLE, GetScreenWidth() / 2 - MeasureText(WINDOW_TITLE, 30), GetScreenHeight() / 4, 50, WHITE);
+    DrawText(WINDOW_TITLE, GetScreenWidth() / 2 - MeasureText(WINDOW_TITLE, 25), GetScreenHeight() / 4, 50, WHITE);
     DrawFPS(10, 10);
 
-    buttons.DrawTextButton({(float)(GetScreenWidth() / 2), (float)(GetScreenHeight() / 2)}, 300, 50, WHITE, "Start", 30, BLACK);
-
+    if (buttons.DrawTextButton({(float)(GetScreenWidth() / 2), (float)(GetScreenHeight() / 2)}, 300, 50, WHITE, "Start", 30, BLACK))
+    {
+        this->stateManager->SwitchState(new GameScreen());
+    }
     ClearBackground(BLANK);
     EndDrawing();
 }

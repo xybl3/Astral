@@ -6,5 +6,13 @@ bool Buttons::DrawTextButton(Vector2 pos, int width, int height, Color bgColor, 
 
     DrawRectangleRec(buttonRec, bgColor);
     DrawText(text, pos.x - (MeasureText(text, fontSize) / 2), pos.y - height / 3, fontSize, RED);
+    if (CheckCollisionPointRec(GetMousePosition(), buttonRec))
+    {
+        if (IsMouseButtonPressed(0))
+        {
+            return true;
+        }
+    }
+
     return false;
 }

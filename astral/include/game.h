@@ -16,4 +16,5 @@ public:
     void InitGame();
     void GameShutDown();
     void CenterWindow();
+    float deg_to_rad(float deg);
 };

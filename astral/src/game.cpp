@@ -31,3 +31,8 @@ void Game::CenterWindow()
 
     SetWindowPosition(GetMonitorWidth(GetCurrentMonitor()) / 2 - GetScreenWidth() / 2, GetMonitorHeight(GetCurrentMonitor()) / 2 - GetScreenHeight() / 2);
 }
+
+float Game::deg_to_rad(float deg)
+{
+    return deg * DEG2RAD;
+}
